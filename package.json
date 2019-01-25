@@ -1,0 +1,37 @@
+{
+  "name": "@liquid-labs/catalyst-theme",
+  "version": "0.0.1",
+  "description": "Wrapper around Material UI theme for Catalyst applications (and others).",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "catalyst-scripts \"$PWD\" build",
+    "start": "catalyst-scripts \"$PWD\" start",
+    "pretest": "babel --source-maps src -d dist",
+    "test": "jest --coverage dist",
+    "prepare": "rm -rf dist && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Liquid-Labs/catalyst-theme.git"
+  },
+  "keywords": [
+    "material-ui",
+    "react",
+    "theme"
+  ],
+  "author": "Zane Rockenbaugh <zane@liquid-labs.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Liquid-Labs/catalyst-theme/issues"
+  },
+  "homepage": "https://github.com/Liquid-Labs/catalyst-theme#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@liquid-labs/catalyst-scripts": "^1.0.0-alpha.6",
+    "jest": "^24.0.0"
+  }
+}
