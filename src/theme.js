@@ -1,4 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles'
+import merge from 'lodash.merge'
 
 
 const configuredColorScheme = (paletteKey, envKey) => {
@@ -24,53 +25,61 @@ const configuredColorScheme = (paletteKey, envKey) => {
   }
 }
 
+const standardCatalystThemeOverrides = (palette) => ({
+  // TODO: the color settings work if only 'main' color is specified.
+  MuiTooltip : {
+    popper : {
+      '@media print' : {
+        // Without this, the invisible tooltip messes up printing
+        display : 'none'
+      }
+    }
+  },
+  MuiInput : {
+    input : {
+      padding : '4px 0 5px' // slightly more compact; was 6 0 7
+    }
+  },
+  MuiMenuItem : {
+    root     : {
+      "&$selected": {
+        "&:hover": {
+          "backgroundColor": palette.primary.main
+        },
+        "&": {
+          "backgroundColor": palette.primary.light
+        }
+      }
+    },
+    selected: {}
+  },
+  MuiListItem : {
+    button : {
+      '&:hover' : {
+        backgroundColor : palette.primary.main
+      }
+    }
+  }
+})
 
-const createCatalystTheme = (options) => {
-  const palette = options.palette || {}
+const standardCatalystThemeTypography = {
+  h3 : {
+    fontVariation : 'oblique'
+  }
+}
+
+const createCatalystTheme = (themeSpec) => {
+  const palette = (themeSpec && themeSpec.palette) || {}
   if (!palette.primary) {palette.primary = configuredColorScheme('primary', 'PRIM')}
   if (!palette.secondary) {palette.secondary = configuredColorScheme('secondary', 'SEC')}
 
-  const theme = createMuiTheme({
+  const standardSpec = {
     palette    : palette,
-    typography : {
-      h3 : {
-        fontVariation : 'oblique'
-      }
-    },
-    overrides : {
-      MuiTooltip : {
-        popper : {
-          '@media print' : {
-            // Without this, the invisible tooltip messes up printing
-            display : 'none'
-          }
-        }
-      },
-      MuiInput : {
-        input : {
-          padding : '4px 0 5px' // slightly more compact; was 6 0 7
-        }
-      },
-      MuiMenuItem : {
-        root     : {},
-        selected : {
-          '&:hover' : { backgroundColor : 'red' },
-          '&$root'  : {
-            backgroundColor : palette.primary.light
-          }
-        }
-      },
-      MuiListItem : {
-        button : {
-          '&:hover' : {
-            backgroundColor : 'rgb(195, 238, 164)'
-          }
-        }
-      }
-    }
-  })
+    typography : standardCatalystThemeTypography,
+    overrides  : standardCatalystThemeOverrides(palette)
+  }
 
-  return theme
+  return createMuiTheme(merge(standardSpec, themeSpec || {}))
 }
 
 export {
