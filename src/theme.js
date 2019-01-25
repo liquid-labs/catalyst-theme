@@ -41,17 +41,17 @@ const standardCatalystThemeOverrides = (palette) => ({
     }
   },
   MuiMenuItem : {
-    root     : {
-      "&$selected": {
-        "&:hover": {
-          "backgroundColor": palette.primary.main
+    root : {
+      "&$selected" : {
+        "&:hover" : {
+          "backgroundColor" : palette.primary.main
         },
-        "&": {
-          "backgroundColor": palette.primary.light
+        "&" : {
+          "backgroundColor" : palette.primary.light
         }
       }
     },
-    selected: {}
+    selected : {}
   },
   MuiListItem : {
     button : {
@@ -62,11 +62,12 @@ const standardCatalystThemeOverrides = (palette) => ({
   }
 })
 
-const standardCatalystThemeTypography = {
+const standardCatalystThemeTypography = (palette) => ({
   h3 : {
-    fontVariation : 'oblique'
+    color: palette.primary.dark,
+    fontStyle : 'oblique'
   }
-}
+})
 
 const createCatalystTheme = (themeSpec) => {
   const palette = (themeSpec && themeSpec.palette) || {}
@@ -75,7 +76,7 @@ const createCatalystTheme = (themeSpec) => {
 
   const standardSpec = {
     palette    : palette,
-    typography : standardCatalystThemeTypography,
+    typography : standardCatalystThemeTypography(palette),
     overrides  : standardCatalystThemeOverrides(palette)
   }
 
