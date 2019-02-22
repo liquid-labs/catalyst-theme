@@ -93,7 +93,7 @@ const createCatalystTheme = (themeSpec) => {
     main: '#FBFE00',
     dark: '#C8CB00',
     contrastLight: '#C8CB00',
-    conrast: 'black',
+    contrast: 'black',
     contrastDark: '#FEFFC7'
   }
   // from http://paletton.com/#uid=1050u0kviuIgPGxnwxzxwmLGGfG
@@ -109,7 +109,8 @@ const createCatalystTheme = (themeSpec) => {
   const standardSpec = {
     palette    : palette,
     typography : standardCatalystThemeTypography(palette),
-    overrides  : standardCatalystThemeOverrides(palette)
+    overrides  : standardCatalystThemeOverrides(palette),
+    typography : { useNextVariants: true }
   }
 
   return createMuiTheme(merge(standardSpec, themeSpec || {}))

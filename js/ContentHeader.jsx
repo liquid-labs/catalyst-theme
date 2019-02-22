@@ -4,7 +4,9 @@ import PropTypes from 'prop-types'
 import Typography from '@material-ui/core/Typography'
 
 const ContentHeader = ({children, ...props}) =>
-  <Typography variant="h3" gutterBottom {...props}>{children}</Typography>
+  <Typography variant="h3" gutterBottom={true} component="div" {...props}>
+    {children}
+  </Typography>
 
 ContentHeader.propTypes = {
   children : PropTypes.node.isRequired
