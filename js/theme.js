@@ -11,11 +11,12 @@ const configuredColorScheme = (paletteKey, envKey) => {
     return scheme
   }
   else {
+    // check for irregularities and set defaults
     if (process.env[`THEME_PALETTE_${envKey}_DARK`] || process.env[`THEME_PALETTE_${envKey}_LIGHT`]) {
       console.warn("Unexpected palette primary light or dark definition with no main definition. Settings ignored.") // eslint-disable-line no-console
     }
     // This is the material-ui 'indigo' color set as of 2019-01-25
-    return envKey == 'PRIM'
+    return envKey === 'PRIM'
       ? {
         dark  : '#2c387e',
         main  : '#3f51b5',
@@ -64,15 +65,47 @@ const standardCatalystThemeOverrides = (palette) => ({
 
 const standardCatalystThemeTypography = (palette) => ({
   h3 : {
-    color: palette.primary.dark,
+    color     : palette.primary.dark,
     fontStyle : 'oblique'
-  }
+  },
+  useNextVariants : true
 })
 
 const createCatalystTheme = (themeSpec) => {
   const palette = (themeSpec && themeSpec.palette) || {}
   if (!palette.primary) {palette.primary = configuredColorScheme('primary', 'PRIM')}
   if (!palette.secondary) {palette.secondary = configuredColorScheme('secondary', 'SEC')}
+  // TODO: document our convention for confirm, light, and dark to use light for
+  // background, dark for borders, and main for icons. 'contrastLight' is
+  // therefore the standard text color (on a 'light' background).
+  // TODO: for the 'inverse' (dark?) theme, that all flips.
+  // from: http://paletton.com/#uid=12B0u0kllllaFw0g0qFqFg0w0aF
+  palette.confirm = {
+    light         : '#B8E297',
+    main          : '#5E9732',
+    dark          : '#214B00',
+    contrastLight : '#214B00',
+    contrast      : 'black',
+    contrastDark  : '#B8E297'
+  }
+  // from http://paletton.com/#uid=11U050kN4zdVTkqZwpw73J5kdBt
+  palette.warn = {
+    light         : '#FEFFC7',
+    main          : '#FBFE00',
+    dark          : '#C8CB00',
+    contrastLight : '#C8CB00',
+    contrast      : 'black',
+    contrastDark  : '#FEFFC7'
+  }
+  // from http://paletton.com/#uid=1050u0kviuIgPGxnwxzxwmLGGfG
+  palette.error = {
+    light         : '#FF8979',
+    main          : '#F52105',
+    dark          : '#7D0E00',
+    contrastLight : '#7D0E00',
+    contrast      : 'white',
+    contrastDark  : '#FF8979'
+  }
 
   const standardSpec = {
     palette    : palette,
