@@ -16,7 +16,8 @@
     "lint": "catalyst-scripts lint",
     "lint-fix": "catalyst-scripts lint-fix",
     "watch": "catalyst-scripts watch",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
