@@ -13,8 +13,8 @@
     "start": "catalyst-scripts start",
     "pretest": "catalyst-scripts pretest",
     "test": "catalyst-scripts test",
-    "lint": "catalyst-scrpts lint",
-    "lint-fix": "catalyst-scrpts lint-fix",
+    "lint": "catalyst-scripts lint",
+    "lint-fix": "catalyst-scripts lint-fix",
     "watch": "catalyst-scripts watch",
     "prepare": "npm run build"
   },

@@ -65,9 +65,10 @@ const standardCatalystThemeOverrides = (palette) => ({
 
 const standardCatalystThemeTypography = (palette) => ({
   h3 : {
-    color: palette.primary.dark,
+    color     : palette.primary.dark,
     fontStyle : 'oblique'
-  }
+  },
+  useNextVariants : true
 })
 
 const createCatalystTheme = (themeSpec) => {
@@ -80,37 +81,36 @@ const createCatalystTheme = (themeSpec) => {
   // TODO: for the 'inverse' (dark?) theme, that all flips.
   // from: http://paletton.com/#uid=12B0u0kllllaFw0g0qFqFg0w0aF
   palette.confirm = {
-    light: '#B8E297',
-    main: '#5E9732',
-    dark: '#214B00',
-    contrastLight: '#214B00',
-    contrast: 'black',
-    contrastDark: '#B8E297'
+    light         : '#B8E297',
+    main          : '#5E9732',
+    dark          : '#214B00',
+    contrastLight : '#214B00',
+    contrast      : 'black',
+    contrastDark  : '#B8E297'
   }
   // from http://paletton.com/#uid=11U050kN4zdVTkqZwpw73J5kdBt
   palette.warn = {
-    light: '#FEFFC7',
-    main: '#FBFE00',
-    dark: '#C8CB00',
-    contrastLight: '#C8CB00',
-    contrast: 'black',
-    contrastDark: '#FEFFC7'
+    light         : '#FEFFC7',
+    main          : '#FBFE00',
+    dark          : '#C8CB00',
+    contrastLight : '#C8CB00',
+    contrast      : 'black',
+    contrastDark  : '#FEFFC7'
   }
   // from http://paletton.com/#uid=1050u0kviuIgPGxnwxzxwmLGGfG
   palette.error = {
-    light: '#FF8979',
-    main: '#F52105',
-    dark: '#7D0E00',
-    contrastLight: '#7D0E00',
-    contrast: 'white',
-    contrastDark: '#FF8979'
+    light         : '#FF8979',
+    main          : '#F52105',
+    dark          : '#7D0E00',
+    contrastLight : '#7D0E00',
+    contrast      : 'white',
+    contrastDark  : '#FF8979'
   }
 
   const standardSpec = {
     palette    : palette,
     typography : standardCatalystThemeTypography(palette),
-    overrides  : standardCatalystThemeOverrides(palette),
-    typography : { useNextVariants: true }
+    overrides  : standardCatalystThemeOverrides(palette)
   }
 
   return createMuiTheme(merge(standardSpec, themeSpec || {}))

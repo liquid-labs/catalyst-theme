@@ -1,4 +1,4 @@
-/* global describe test */
+/* global describe expect test */
 
 import { createCatalystTheme } from './theme'
 
@@ -13,7 +13,7 @@ const standardColorsDefinedTestTable =
     return [ standardColorsProperties.map((prop) => [series, prop]) ]
   })
   // flatten 1 level TODO: use '.flat(1)' when available
-  .reduce((acc, row) => acc.concat(...row), [])
+    .reduce((acc, row) => acc.concat(...row), [])
 
 describe('createCatalystTheme', () => {
   // TODO: document and reference
