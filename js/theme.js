@@ -30,17 +30,17 @@ const configuredColorScheme = (envKey) => {
     // This is the material-ui 'indigo' color set as of 2019-01-25
     return envKey === 'PRIMARY'
       ? {
-        dark  : '#2c387e',
-        main  : '#3f51b5',
-        light : '#6573c3',
-        contrastLight: 'white',
-        contrastDark : 'white'
+        dark          : '#2c387e',
+        main          : '#3f51b5',
+        light         : '#6573c3',
+        contrastLight : 'white',
+        contrastDark  : 'white'
       }
       : { // secondary
-          main : '#558b2f', // material UI 'lightGreen' scheme shadded to '800'
-          contrastLight: 'white',
-          contrastDark: 'white'
-        }
+        main          : '#558b2f', // material UI 'lightGreen' scheme shadded to '800'
+        contrastLight : 'white',
+        contrastDark  : 'white'
+      }
   }
 }
 
@@ -104,31 +104,31 @@ const createCatalystTheme = (themeSpec) => {
   // TODO: for the 'inverse' (dark?) theme, that all flips.
   // from: http://paletton.com/#uid=12B0u0kllllaFw0g0qFqFg0w0aF
   palette.confirm = Object.assign({
-      light         : '#B8E297',
-      main          : '#5E9732',
-      dark          : '#214B00',
-      contrastLight : '#214B00',
-      contrast      : 'black',
-      contrastDark  : '#B8E297'
-    }, palette.confirm)
+    light         : '#B8E297',
+    main          : '#5E9732',
+    dark          : '#214B00',
+    contrastLight : '#214B00',
+    contrast      : 'black',
+    contrastDark  : '#B8E297'
+  }, palette.confirm)
   // from http://paletton.com/#uid=11U050kN4zdVTkqZwpw73J5kdBt
   palette.warn = Object.assign({
-      light         : '#FEFFC7',
-      main          : '#FBFE00',
-      dark          : '#C8CB00',
-      contrastLight : '#C8CB00',
-      contrast      : 'black',
-      contrastDark  : '#FEFFC7'
-    }, palette.warn)
+    light         : '#FEFFC7',
+    main          : '#FBFE00',
+    dark          : '#C8CB00',
+    contrastLight : '#C8CB00',
+    contrast      : 'black',
+    contrastDark  : '#FEFFC7'
+  }, palette.warn)
   // from http://paletton.com/#uid=1050u0kviuIgPGxnwxzxwmLGGfG
   palette.error = Object.assign({
-      light         : '#FF8979',
-      main          : '#F52105',
-      dark          : '#7D0E00',
-      contrastLight : '#7D0E00',
-      contrast      : 'white',
-      contrastDark  : '#FF8979'
-    }, palette.error)
+    light         : '#FF8979',
+    main          : '#F52105',
+    dark          : '#7D0E00',
+    contrastLight : '#7D0E00',
+    contrast      : 'white',
+    contrastDark  : '#FF8979'
+  }, palette.error)
 
   const standardSpec = {
     palette    : palette,

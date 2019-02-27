@@ -11,14 +11,14 @@ const feedbackColorsDefinedTestTable =
   feedbackColors.map((series) =>
     [ feedbackColorsProperties.map((prop) => [series, prop]) ])
   // flatten 1 level TODO: use '.flat(1)' when available
-  .reduce((acc, row) => acc.concat(...row), [])
+    .reduce((acc, row) => acc.concat(...row), [])
 
 const standardColors = ['primary', 'secondary']
 const standardColorsProperties = ['light','main','dark','contrastLight','contrastText','contrastDark']
 const standardColorsTestTable = // as above
   standardColors.map((series) =>
     [ standardColorsProperties.map((prop) => [series, prop]) ])
-  .reduce((acc, row) => acc.concat(...row), [])
+    .reduce((acc, row) => acc.concat(...row), [])
 
 describe('createCatalystTheme', () => {
   // TODO: document and reference
