@@ -60,6 +60,11 @@ const standardCatalystThemeOverrides = (palette) => ({
         backgroundColor : palette.primary.main
       }
     }
+  },
+  MuiSnackbarContent : {
+    root : {
+      "flexWrap" : "nowrap"
+    }
   }
 })
 
