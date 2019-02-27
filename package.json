@@ -1,6 +1,6 @@
 {
   "name": "@liquid-labs/catalyst-theme",
-  "version": "1.0.0-prototype.0",
+  "version": "1.0.0-prototype.1",
   "description": "Wrapper around Material UI theme for Catalyst applications (and others).",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
