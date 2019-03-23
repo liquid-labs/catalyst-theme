@@ -34,12 +34,14 @@ const configuredColorScheme = (envKey) => {
         main          : '#3f51b5',
         light         : '#6573c3',
         contrastLight : 'white',
-        contrastDark  : 'white'
+        contrastDark  : 'white',
+        constrastText : 'white',
       }
       : { // secondary
         main          : '#558b2f', // material UI 'lightGreen' scheme shadded to '800'
         contrastLight : 'white',
-        contrastDark  : 'white'
+        contrastDark  : 'white',
+        constrastText : 'white',
       }
   }
 }
@@ -129,6 +131,10 @@ const createCatalystTheme = (themeSpec) => {
     contrast      : 'white',
     contrastDark  : '#FF8979'
   }, palette.error)
+  const dangerousBase = themeSpec && themeSpec.usePaletteSecondaryForDangerous
+    ? palette.secondary
+    : palette.error
+  palette.dangerous = Object.assign({}, dangerousBase, palette.dangerous)
 
   const standardSpec = {
     palette    : palette,
