@@ -70,7 +70,7 @@ const standardCatalystThemeOverrides = (palette) => {
       underline : {
         // Implement 'expanding effect' that the default uses for '$focused' on
         // :hover as well. It looks better, and why have two effects anyway?
-        '&:hover:after' : {
+        '&:hover:not($disabled):after' : {
           transform : 'scaleX(1)',
         },
         '&:before' : {
