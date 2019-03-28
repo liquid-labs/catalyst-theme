@@ -1,4 +1,4 @@
-/* global describe expect test */
+/* global describe expect jest test */
 
 import { createCatalystTheme } from './theme'
 
@@ -44,4 +44,24 @@ describe('createCatalystTheme', () => {
       }
     }
   )
+
+  test.each`
+    rank         | variant
+    ${'PRIMARY'}   | ${'LIGHT'}
+    ${'PRIMARY'}   | ${'DARK'}
+    ${'SECONDARY'} | ${'LIGHT'}
+    ${'SECONDARY'} | ${'DARK'}`(
+  `will emit warning if '$rank'-'$variant' configuration provided with no 'MAIN' definition`,
+  ({rank, variant}) => {
+    const warningSpy = jest.spyOn(console, 'warn').mockImplementation()
+    try {
+      process.env[`THEME_PALETTE_${rank}_${variant}`] = '#abc123'
+      createCatalystTheme()
+      expect(warningSpy).toHaveBeenCalledTimes(1)
+    }
+    finally {
+      warningSpy.mockClear()
+      delete process.env[`THEME_PALETTE_${rank}_${variant}`]
+    }
+  })
 })
