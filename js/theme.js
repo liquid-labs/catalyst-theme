@@ -10,13 +10,13 @@ const schemeProperties = [
   'contrastDark',
 ]
 
-const configuredColorScheme = (envKey) => {
-  if (process.env[`THEME_PALETTE_${envKey}_MAIN`]) {
-    const scheme = { main : process.env[`THEME_PALETTE_${envKey}_MAIN`] }
+const configuredColorScheme = (colorRank) => {
+  if (process.env[`THEME_PALETTE_${colorRank}_MAIN`]) {
+    const scheme = { main : process.env[`THEME_PALETTE_${colorRank}_MAIN`] }
     schemeProperties.forEach((pKey) => {
       const eKey = pKey.toUpperCase()
-      if (process.env[`THEME_PALETTE_${envKey}_${eKey}`]) {
-        scheme[pKey] = process.env[`THEME_PALETTE_${envKey}_${eKey}`]
+      if (process.env[`THEME_PALETTE_${colorRank}_${eKey}`]) {
+        scheme[pKey] = process.env[`THEME_PALETTE_${colorRank}_${eKey}`]
       }
     })
 
@@ -24,11 +24,12 @@ const configuredColorScheme = (envKey) => {
   }
   else {
     // check for irregularities and set defaults
-    if (process.env[`THEME_PALETTE_${envKey}_DARK`] || process.env[`THEME_PALETTE_${envKey}_LIGHT`]) {
+    if (process.env[`THEME_PALETTE_${colorRank}_DARK`] || process.env[`THEME_PALETTE_${colorRank}_LIGHT`]) {
+      // eslint-disable-next no-console
       console.warn("Unexpected palette primary light or dark definition with no main definition. Settings ignored.") // eslint-disable-line no-console
     }
     // This is the material-ui 'indigo' color set as of 2019-01-25
-    return envKey === 'PRIMARY'
+    return colorRank === 'PRIMARY'
       ? {
         dark          : '#2c387e',
         main          : '#3f51b5',
