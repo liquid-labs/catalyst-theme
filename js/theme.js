@@ -205,7 +205,7 @@ const createCatalystTheme = (themeSpec) => {
 
   if ('placeholder' == theme.layout.header.logoURL) {
     theme.layout.header.logoURL = theme.layout.header.variant == 'normal'
-      ? 'https://via.placeholder.com/96x48?text=logo%0A96x48'
+      ? 'https://via.placeholder.com/96x48'
       : 'https://via.placeholder.com/144x36'
   }
 
