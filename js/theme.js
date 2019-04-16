@@ -195,8 +195,12 @@ const createCatalystTheme = (themeSpec) => {
     layout     : {
       header : {
         variant : 'normal', // supports 'dense' and 'none'
-        logoURL : 'placeholder',
-        logoAltText : 'placehodler image'
+        logo : {
+          visible : true,
+          node : null,
+          url : 'placeholder',
+          altText : 'placehodler image',
+        }
       }
     }
   }
