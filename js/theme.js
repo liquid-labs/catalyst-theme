@@ -191,10 +191,25 @@ const createCatalystTheme = (themeSpec) => {
   const standardSpec = {
     palette    : palette,
     typography : standardCatalystThemeTypography(palette),
-    overrides  : standardCatalystThemeOverrides(palette)
+    overrides  : standardCatalystThemeOverrides(palette),
+    layout     : {
+      header : {
+        variant : 'normal', // supports 'dense' and 'none'
+        logoURL : 'placeholder',
+        logoAltText : 'placehodler image'
+      }
+    }
   }
 
-  return createMuiTheme(merge(standardSpec, themeSpec || {}))
+  const theme = createMuiTheme(merge(standardSpec, themeSpec || {}))
+
+  if ('placeholder' == theme.layout.header.logoURL) {
+    theme.layout.header.logoURL = theme.layout.header.variant == 'normal'
+      ? 'https://via.placeholder.com/96x48?text=logo%0A96x48'
+      : 'https://via.placeholder.com/144x36'
+  }
+
+  return theme
 }
 
 export {
