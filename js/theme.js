@@ -183,40 +183,45 @@ const createCatalystTheme = (themeSpec) => {
     contrast      : 'white',
     contrastDark  : '#FF8979'
   }, palette.error)
+
   const dangerousBase = themeSpec && themeSpec.usePaletteSecondaryForDangerous
     ? palette.secondary
     : palette.error
   palette.dangerous = Object.assign({}, dangerousBase, palette.dangerous)
 
+  palette.info = { ...palette.primary }
+
+  palette.placeholder = "#9e9e9e"
+
+  const placehodlerBranding = {
+    node : null,
+    url : 'placeholder',
+  }
+
   const standardSpec = {
     palette    : palette,
     typography : standardCatalystThemeTypography(palette),
     overrides  : standardCatalystThemeOverrides(palette),
+    transitions : {
+      duration : { dramatic : 750 },
+    },
     layout     : {
       header : {
         variant : 'regular', // supports 'dense' and 'none'
-        logo : {
+        showLogo : true,
+        appMenu : {
           visible : true,
           node : null,
-          url : 'placeholder',
-          altText : 'placehodler image',
-        },
-        appMenu : {
-          node : null,
         }
+      },
+      branding : {
+        header : { ...placehodlerBranding, altText : 'header logo' },
+        splash : { ...placehodlerBranding, altText : 'splash logo' },
       }
     }
   }
 
-  const theme = createMuiTheme(merge(standardSpec, themeSpec || {}))
-
-  if ('placeholder' === theme.layout.header.logo.url) {
-    theme.layout.header.logo.url = theme.layout.header.variant === 'normal'
-      ? 'https://via.placeholder.com/96x48'
-      : 'https://via.placeholder.com/144x36'
-  }
-
-  return theme
+  return createMuiTheme(merge(standardSpec, themeSpec || {}))
 }
 
 export {
