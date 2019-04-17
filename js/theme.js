@@ -200,6 +200,9 @@ const createCatalystTheme = (themeSpec) => {
           node : null,
           url : 'placeholder',
           altText : 'placehodler image',
+        },
+        appMenu : {
+          node : null,
         }
       }
     }
@@ -207,8 +210,8 @@ const createCatalystTheme = (themeSpec) => {
 
   const theme = createMuiTheme(merge(standardSpec, themeSpec || {}))
 
-  if ('placeholder' == theme.layout.header.logoURL) {
-    theme.layout.header.logoURL = theme.layout.header.variant == 'normal'
+  if ('placeholder' === theme.layout.header.logo.url) {
+    theme.layout.header.logo.url = theme.layout.header.variant === 'normal'
       ? 'https://via.placeholder.com/96x48'
       : 'https://via.placeholder.com/144x36'
   }
