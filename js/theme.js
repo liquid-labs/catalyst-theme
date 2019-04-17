@@ -194,7 +194,7 @@ const createCatalystTheme = (themeSpec) => {
     overrides  : standardCatalystThemeOverrides(palette),
     layout     : {
       header : {
-        variant : 'normal', // supports 'dense' and 'none'
+        variant : 'regular', // supports 'dense' and 'none'
         logo : {
           visible : true,
           node : null,
