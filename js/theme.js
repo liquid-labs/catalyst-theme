@@ -214,10 +214,10 @@ const createCatalystTheme = (themeSpec) => {
           node : null,
         }
       },
-      branding : {
-        header : { ...placehodlerBranding, altText : 'header logo' },
-        splash : { ...placehodlerBranding, altText : 'splash logo' },
-      }
+    },
+    branding : {
+      header : { ...placehodlerBranding, altText : 'header logo' },
+      splash : { ...placehodlerBranding, altText : 'splash logo' },
     }
   }
 
