@@ -214,6 +214,38 @@ const createCatalystTheme = (themeSpec) => {
           node : null,
         }
       },
+      sections : {
+        [
+          { label: 'Home', path: '/', onClick: null, icon: null }
+        ]
+      },
+      mainPadding : {
+        'xs' : {
+          top: 0,
+          side: 0,
+          bottom: 0,
+        },
+        'sm' : {
+          top: 0.5,
+          side: 0.25,
+          bottom: 0.5,
+        },
+        'md' : {
+          top: 0.5,
+          side: 1,
+          bottom: 1,
+        },
+        'lg' : {
+          top: 1,
+          side: 1,
+          bottom: 1,
+        },
+        'xl' : {
+          top: 1,
+          side: 1,
+          bottom: 1,
+        },
+      }
     },
     branding : {
       header : { ...placehodlerBranding, altText : 'header logo' },
