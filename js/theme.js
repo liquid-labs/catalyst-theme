@@ -214,11 +214,9 @@ const createCatalystTheme = (themeSpec) => {
           node : null,
         }
       },
-      sections : {
-        [
-          { label: 'Home', path: '/', onClick: null, icon: null }
-        ]
-      },
+      sections : [
+        { label: 'Home', path: '/', onClick: null, icon: null }
+      ],
       mainPadding : {
         'xs' : {
           top: 0,
@@ -227,7 +225,7 @@ const createCatalystTheme = (themeSpec) => {
         },
         'sm' : {
           top: 0.5,
-          side: 0.25,
+          side: 0.5,
           bottom: 0.5,
         },
         'md' : {
