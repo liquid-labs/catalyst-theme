@@ -214,6 +214,9 @@ const createCatalystTheme = (themeSpec) => {
           node : null,
         }
       },
+      navigation : {
+        visible: true,
+      },
       sections : [
         { label: 'Home', path: '/', onClick: null, icon: null }
       ],
