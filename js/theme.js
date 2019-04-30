@@ -254,7 +254,7 @@ const createCatalystTheme = (themeSpec) => {
     }
   }
 
-  return createMuiTheme(merge(standardSpec, themeSpec || {}))
+  return createMuiTheme(merge({}, standardSpec, themeSpec || {}))
 }
 
 export {
