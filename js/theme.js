@@ -195,56 +195,57 @@ const createCatalystTheme = (themeSpec) => {
 
   const placehodlerBranding = {
     node : null,
-    url : 'placeholder',
+    url  : 'placeholder',
   }
 
   const standardSpec = {
-    palette    : palette,
-    typography : standardCatalystThemeTypography(palette),
-    overrides  : standardCatalystThemeOverrides(palette),
+    palette     : palette,
+    typography  : standardCatalystThemeTypography(palette),
+    overrides   : standardCatalystThemeOverrides(palette),
     transitions : {
       duration : { dramatic : 750 },
     },
-    layout     : {
+    layout : {
       header : {
-        variant : 'regular', // supports 'dense' and 'none'
+        variant  : 'regular', // supports 'dense' and 'none'
         showLogo : true,
-        appMenu : {
+        // children : ...
+        appMenu  : {
           visible : true,
-          node : null,
+          node    : null,
         }
       },
       navigation : {
-        visible: true,
+        visible : true,
       },
       sections : [
-        { label: 'Home', path: '/', onClick: null, icon: null }
+        { label : 'Home', path : '/', onClick : null, icon : null }
       ],
       mainPadding : {
         'xs' : {
-          top: 0,
-          side: 0,
-          bottom: 0,
+          top    : 0,
+          side   : 0,
+          bottom : 0,
         },
         'sm' : {
-          top: 0.5,
-          side: 0.5,
-          bottom: 0.5,
+          top    : 0.5,
+          side   : 0.5,
+          bottom : 0.5,
         },
         'md' : {
-          top: 0.5,
-          side: 1,
-          bottom: 1,
+          top    : 0.5,
+          side   : 1,
+          bottom : 1,
         },
         'lg' : {
-          top: 1,
-          side: 1,
-          bottom: 1,
+          top    : 1,
+          side   : 1,
+          bottom : 1,
         },
         'xl' : {
-          top: 1,
-          side: 1,
-          bottom: 1,
+          top    : 1,
+          side   : 1,
+          bottom : 1,
         },
       }
     },
