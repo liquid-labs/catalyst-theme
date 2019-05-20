@@ -218,9 +218,6 @@ const createCatalystTheme = (themeSpec) => {
       navigation : {
         visible : true,
       },
-      sections : [
-        { label : 'Home', path : '/', onClick : null, icon : null }
-      ],
       mainPadding : {
         'xs' : {
           top    : 0,
