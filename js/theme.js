@@ -183,18 +183,76 @@ const createCatalystTheme = (themeSpec) => {
     contrast      : 'white',
     contrastDark  : '#FF8979'
   }, palette.error)
+
   const dangerousBase = themeSpec && themeSpec.usePaletteSecondaryForDangerous
     ? palette.secondary
     : palette.error
   palette.dangerous = Object.assign({}, dangerousBase, palette.dangerous)
 
-  const standardSpec = {
-    palette    : palette,
-    typography : standardCatalystThemeTypography(palette),
-    overrides  : standardCatalystThemeOverrides(palette)
+  palette.info = { ...palette.primary }
+
+  palette.placeholder = "#9e9e9e"
+
+  const placehodlerBranding = {
+    node : null,
+    url  : 'placeholder',
   }
 
-  return createMuiTheme(merge(standardSpec, themeSpec || {}))
+  const standardSpec = {
+    palette     : palette,
+    typography  : standardCatalystThemeTypography(palette),
+    overrides   : standardCatalystThemeOverrides(palette),
+    transitions : {
+      duration : { dramatic : 750 },
+    },
+    layout : {
+      header : {
+        variant  : 'regular', // supports 'dense' and 'none'
+        showLogo : true,
+        // children : ...
+        appMenu  : {
+          visible : true,
+          node    : null,
+        }
+      },
+      navigation : {
+        visible : true,
+      },
+      mainPadding : {
+        'xs' : {
+          top    : 0,
+          side   : 0,
+          bottom : 0,
+        },
+        'sm' : {
+          top    : 0.5,
+          side   : 0.5,
+          bottom : 0.5,
+        },
+        'md' : {
+          top    : 0.5,
+          side   : 1,
+          bottom : 1,
+        },
+        'lg' : {
+          top    : 1,
+          side   : 1,
+          bottom : 1,
+        },
+        'xl' : {
+          top    : 1,
+          side   : 1,
+          bottom : 1,
+        },
+      }
+    },
+    branding : {
+      header : { ...placehodlerBranding, altText : 'header logo' },
+      splash : { ...placehodlerBranding, altText : 'splash logo' },
+    }
+  }
+
+  return createMuiTheme(merge({}, standardSpec, themeSpec || {}))
 }
 
 export {
